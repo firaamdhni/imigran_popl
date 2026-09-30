@@ -1,71 +1,634 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resep Nasi Liwet Sunda</title>
+
+    <title>Nasi Liwet Sunda | Buku Resep</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fff8ed;
+            color: #3d3025;
+            line-height: 1.7;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #6b3e26, #a86432);
+            color: white;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd78a;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                linear-gradient(rgba(73, 39, 22, 0.7),
+                    rgba(73, 39, 22, 0.7)),
+                radial-gradient(circle at center, #d99a58, #60351f);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffd78a;
+            color: #5c351f;
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 70px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.92;
+        }
+
+        /* ================= MAIN ================= */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+
+        .intro h2 {
+            color: #713f24;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        /* ================= RECIPE INFO ================= */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(91, 54, 30, 0.08);
+            border: 1px solid #f0dfca;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(91, 54, 30, 0.15);
+        }
+
+        .info-card .icon {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .info-card h3 {
+            color: #743f22;
+            margin-bottom: 5px;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(91, 54, 30, 0.08);
+            border: 1px solid #f0dfca;
+        }
+
+        .card h2 {
+            color: #713f24;
+            margin-bottom: 22px;
+            font-size: 25px;
+        }
+
+        /* ================= INGREDIENTS ================= */
+
+        .ingredient-list {
+            list-style: none;
+        }
+
+        .ingredient-list li {
+            padding: 11px 0;
+            border-bottom: 1px solid #f1e5d8;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .ingredient-list li:last-child {
+            border-bottom: none;
+        }
+
+        .amount {
+            color: #9a5a2e;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .sub-title {
+            margin: 25px 0 10px;
+            color: #9a5a2e;
+            font-size: 18px;
+        }
+
+        /* ================= STEPS ================= */
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding: 0 0 25px 55px;
+        }
+
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #8d4f28;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .steps li:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 17px;
+            top: 36px;
+            height: calc(100% - 25px);
+            width: 2px;
+            background: #e6cdb6;
+        }
+
+        /* ================= TIP ================= */
+
+        .tip {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #fff3d7;
+            border-left: 5px solid #d99a32;
+        }
+
+        .tip strong {
+            color: #7b4a1f;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .button-area {
+            text-align: center;
+            margin: 50px 0 20px;
+        }
+
+        .recipe-button {
+            border: none;
+            background: #713f24;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .recipe-button:hover {
+            background: #9a5a2e;
+            transform: translateY(-2px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #3d2417;
+            color: #ead9c8;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 50px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                min-height: 400px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Resep Nasi Liwet Sunda</h1>
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">Buku Resep Nusantara</div>
 
-    <h2>Bahan Utama</h2>
-    <ul>
-        <li>500 g beras pulen</li>
-        <li>1 lembar daun pandan, potong-potong</li>
-        <li>2 lembar daun salam</li>
-        <li>5 lembar daun jeruk</li>
-        <li>1 batang serai, memarkan</li>
-        <li>1 sdt garam</li>
-        <li>500–600 ml santan encer</li>
-    </ul>
+            <div>
+                <a href="#bahan">Bahan</a>
+                <a href="#cara">Cara Membuat</a>
+                <a href="#tips">Tips</a>
+            </div>
+        </nav>
+    </header>
 
-    <h2>Pelengkap</h2>
-    <ul>
-        <li>2 papan petai, kupas</li>
-        <li>10 cabe rawit merah utuh</li>
-        <li>50 g ikan teri tawar, goreng</li>
-        <li>250 g cumi asin</li>
-        <li>Daun kemangi</li>
-    </ul>
 
-    <h2>Cara Membuat</h2>
-    <ol>
-        <li>
-            Cuci beras hingga bersih, lalu tiriskan hingga agak kering.
-        </li>
-        <li>
-            Masukkan beras ke dalam panci rice cooker.
-            Tambahkan daun pandan, daun salam, daun jeruk,
-            serai, dan garam.
-        </li>
-        <li>
-            Tuangkan santan encer, kemudian masak seperti memasak nasi biasa.
-        </li>
-        <li>
-            Setelah nasi matang atau rice cooker berpindah ke mode
-            <i>Warm</i>, aduk nasi hingga semua bahan tercampur rata.
-        </li>
-        <li>
-            Untuk pelengkap, goreng petai dan cabe rawit merah
-            hingga layu, kemudian angkat.
-        </li>
-        <li>
-            Rebus cumi asin hingga empuk, kemudian tiriskan.
-            Tumis cumi asin dengan sedikit minyak.
-        </li>
-        <li>
-            Sajikan nasi liwet bersama petai, cabe rawit, ikan teri,
-            cumi asin, dan daun kemangi.
-        </li>
-    </ol>
+    <!-- HERO -->
+    <section class="hero">
 
-    <h2>Nasi Liwet Sunda Siap Disajikan</h2>
-    <p>
-        Nasi liwet Sunda siap dinikmati bersama berbagai pelengkapnya.
-        Perpaduan nasi gurih, ikan teri, petai, cumi asin, dan daun kemangi
-        membuat hidangan ini semakin lezat.
-    </p>
+        <div class="hero-content">
+
+            <span class="badge">RESEP NUSANTARA</span>
+
+            <h1>Nasi Liwet Sunda</h1>
+
+            <p>
+                Nasi gurih dengan aroma rempah dan santan,
+                lengkap dengan petai, ikan teri, cumi asin,
+                serta daun kemangi.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <div class="intro">
+
+            <h2>Hidangan Sederhana, Rasa Istimewa</h2>
+
+            <p>
+                Nasi Liwet Sunda merupakan hidangan nasi gurih
+                yang cocok disajikan bersama berbagai lauk dan
+                pelengkap. Resep ini praktis dibuat menggunakan
+                rice cooker.
+            </p>
+
+        </div>
+
+
+        <!-- INFORMATION -->
+        <section class="info-grid">
+
+            <div class="info-card">
+                <div class="icon">🍚</div>
+                <h3>Bahan Utama</h3>
+                <p>7 bahan</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon">⏱</div>
+                <h3>Waktu</h3>
+                <p>± 45 menit</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon">👨‍🍳</div>
+                <h3>Tingkat</h3>
+                <p>Mudah</p>
+            </div>
+
+        </section>
+
+
+        <!-- RECIPE -->
+        <section class="recipe-grid">
+
+            <!-- BAHAN -->
+            <div class="card" id="bahan">
+
+                <h2>🛒 Bahan-Bahan</h2>
+
+                <ul class="ingredient-list">
+
+                    <li>
+                        <span>Beras pulen</span>
+                        <span class="amount">500 g</span>
+                    </li>
+
+                    <li>
+                        <span>Daun pandan</span>
+                        <span class="amount">1 lembar</span>
+                    </li>
+
+                    <li>
+                        <span>Daun salam</span>
+                        <span class="amount">2 lembar</span>
+                    </li>
+
+                    <li>
+                        <span>Daun jeruk</span>
+                        <span class="amount">5 lembar</span>
+                    </li>
+
+                    <li>
+                        <span>Serai</span>
+                        <span class="amount">1 batang</span>
+                    </li>
+
+                    <li>
+                        <span>Garam</span>
+                        <span class="amount">1 sdt</span>
+                    </li>
+
+                    <li>
+                        <span>Santan encer</span>
+                        <span class="amount">500–600 ml</span>
+                    </li>
+
+                </ul>
+
+
+                <h3 class="sub-title">Pelengkap</h3>
+
+                <ul class="ingredient-list">
+
+                    <li>
+                        <span>Petai</span>
+                        <span class="amount">2 papan</span>
+                    </li>
+
+                    <li>
+                        <span>Cabe rawit merah</span>
+                        <span class="amount">10 buah</span>
+                    </li>
+
+                    <li>
+                        <span>Ikan teri tawar</span>
+                        <span class="amount">50 g</span>
+                    </li>
+
+                    <li>
+                        <span>Cumi asin</span>
+                        <span class="amount">250 g</span>
+                    </li>
+
+                    <li>
+                        <span>Daun kemangi</span>
+                        <span class="amount">Secukupnya</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CARA MEMBUAT -->
+            <div class="card" id="cara">
+
+                <h2>👨‍🍳 Cara Membuat</h2>
+
+                <ol class="steps">
+
+                    <li>
+                        Cuci beras hingga bersih, kemudian tiriskan
+                        hingga agak kering.
+                    </li>
+
+                    <li>
+                        Masukkan beras ke dalam panci rice cooker.
+                        Tambahkan daun pandan, daun salam, daun jeruk,
+                        serai, dan garam.
+                    </li>
+
+                    <li>
+                        Tuangkan santan encer ke dalam rice cooker,
+                        kemudian masak seperti memasak nasi biasa.
+                    </li>
+
+                    <li>
+                        Setelah nasi matang atau rice cooker berpindah
+                        ke mode <i>Warm</i>, aduk nasi hingga semua
+                        bahan tercampur rata.
+                    </li>
+
+                    <li>
+                        Goreng petai dan cabe rawit merah hingga layu,
+                        kemudian angkat.
+                    </li>
+
+                    <li>
+                        Rebus cumi asin hingga empuk, kemudian tiriskan.
+                        Tumis cumi asin menggunakan sedikit minyak.
+                    </li>
+
+                    <li>
+                        Sajikan nasi liwet bersama petai, cabe rawit,
+                        ikan teri, cumi asin, dan daun kemangi.
+                    </li>
+
+                </ol>
+
+
+                <!-- TIPS -->
+                <div class="tip" id="tips">
+
+                    <strong>💡 Tips:</strong>
+
+                    <p>
+                        Aduk nasi setelah matang agar santan dan
+                        bumbu yang berada di bagian bawah tercampur
+                        merata. Sajikan selagi hangat untuk mendapatkan
+                        rasa dan aroma terbaik.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUTTON -->
+        <div class="button-area">
+
+            <button class="recipe-button" onclick="showMessage()">
+                🍽 Resep Sudah Siap!
+            </button>
+
+        </div>
+
+
+        <!-- LINK KURANG GARAM -->
+        <div style="
+            text-align:center;
+            margin-top:30px;
+            padding:25px;
+            background:#f5eadc;
+            border-radius:18px;
+        ">
+
+            <h3 style="color:#713f24; margin-bottom:8px;">
+                Ingin versi lebih rendah garam?
+            </h3>
+
+            <p style="margin-bottom:15px;">
+                Lihat versi resep dengan pengurangan garam.
+            </p>
+
+            <a href="kurang-garam.html" style="
+                    display:inline-block;
+                    padding:11px 22px;
+                    background:#8d4f28;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:25px;
+               ">
+                Lihat Kurang Garam →
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <strong>Buku Resep Nusantara</strong>
+        </p>
+
+        <p>
+            Koleksi resep untuk tugas Git & GitHub
+        </p>
+
+        <p>
+            © 2026 Kelompok
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function showMessage() {
+
+            alert(
+                "Selamat! Nasi Liwet Sunda siap disajikan. 🍚"
+            );
+
+        }
+
+    </script>
 
 </body>
+
 </html>
