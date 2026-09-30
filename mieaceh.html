@@ -2,65 +2,206 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Resep Mie Aceh</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f3ed;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #8b2f2f;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+        }
+
+        .recipe-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #8b2f2f;
+            margin-top: 0;
+            border-bottom: 2px solid #e8d7c5;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #a34848;
+            margin-top: 28px;
+        }
+
+        ul,
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background-color: #8b2f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .link:hover {
+            background-color: #6f2424;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Resep Masakan Aceh</h1>
+    <header>
+        <h1>Resep Masakan Aceh</h1>
+        <p>Cita rasa khas Aceh dalam hidangan sederhana</p>
+    </header>
 
-    <h2>Mie Aceh</h2>
+    <main class="container">
 
-    <h3>Bahan-bahan:</h3>
-    <ul>
-        <li>500 gr mie kuning</li>
-        <li>150 gr udang</li>
-        <li>100 gr daging sapi, potong kotak-kotak kecil</li>
-        <li>100 gr kol putih, iris</li>
-        <li>100 gr toge</li>
-        <li>1 buah tomat, potong memanjang</li>
-        <li>1 sdm kecap asin</li>
-        <li>2 batang daun bawang, iris halus</li>
-        <li>2 sdm kecap manis</li>
-        <li>4 siung bawang putih, iris</li>
-        <li>4 siung bawang merah, iris</li>
-        <li>Garam secukupnya</li>
-        <li>Kaldu jamur secukupnya</li>
-        <li>2 sdm minyak untuk menumis</li>
-    </ul>
+        <div class="recipe-card">
 
-    <h3>Bumbu halus:</h3>
-    <ul>
-        <li>1 sdt garam</li>
-        <li>1/2 sdt merica</li>
-        <li>1/4 sdt adas manis</li>
-        <li>2 buah kapulaga</li>
-        <li>2 buah kemiri</li>
-        <li>2 sdm bubuk kari India</li>
-        <li>3 siung bawang putih</li>
-        <li>5 buah cabai rawit</li>
-        <li>1 sdm minyak untuk menghaluskan bumbu</li>
-    </ul>
+            <h2>🍜 Mie Aceh</h2>
 
-    <h3>Bahan topping:</h3>
-    <ul>
-        <li>Emping secukupnya</li>
-        <li>Telur ceplok/dadar</li>
-    </ul>
+            <div class="section">
+                <h3>Bahan-bahan</h3>
 
-    <h3>Cara membuat:</h3>
-    <ol>
-        <li>Haluskan semua bumbu lalu tambahkan sedikit minyak. Sisihkan.</li>
-        <li>Tumis bawang merah dan bawang putih, masukkan udang dan daging. Aduk hingga berubah warna.</li>
-        <li>Masukkan bumbu halus dan mie kuning, aduk rata.</li>
-        <li>Tambahkan tauge, kecap manis, garam dan kaldu jamur. Koreksi rasa. Angkat.</li>
-        <li>Sajikan dengan topping di atasnya.</li>
-    </ol>
+                <ul>
+                    <li>500 gr mie kuning</li>
+                    <li>150 gr udang</li>
+                    <li>100 gr daging sapi, potong kecil</li>
+                    <li>100 gr kol putih, iris</li>
+                    <li>100 gr tauge</li>
+                    <li>1 buah tomat, potong memanjang</li>
+                    <li>1 sdm kecap asin</li>
+                    <li>2 batang daun bawang, iris halus</li>
+                    <li>2 sdm kecap manis</li>
+                    <li>4 siung bawang putih, iris</li>
+                    <li>4 siung bawang merah, iris</li>
+                    <li>Garam secukupnya</li>
+                    <li>Kaldu jamur secukupnya</li>
+                    <li>2 sdm minyak untuk menumis</li>
+                </ul>
+            </div>
 
-    <p>
-        <a href="kurang_garam.html">Lihat versi kurang garam</a>
-    </p>
+            <div class="section">
+                <h3>Bumbu Halus</h3>
+
+                <ul>
+                    <li>1 sdt garam</li>
+                    <li>1/2 sdt merica</li>
+                    <li>1/4 sdt adas manis</li>
+                    <li>2 buah kapulaga</li>
+                    <li>2 buah kemiri</li>
+                    <li>2 sdm bubuk kari India</li>
+                    <li>3 siung bawang putih</li>
+                    <li>5 buah cabai rawit</li>
+                    <li>1 sdm minyak untuk menghaluskan bumbu</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Bahan Topping</h3>
+
+                <ul>
+                    <li>Emping secukupnya</li>
+                    <li>Telur ceplok atau telur dadar</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Cara Membuat</h3>
+
+                <ol>
+                    <li>
+                        Haluskan semua bumbu lalu tambahkan sedikit minyak.
+                        Sisihkan.
+                    </li>
+
+                    <li>
+                        Tumis bawang merah dan bawang putih.
+                        Masukkan udang dan daging, lalu aduk hingga berubah warna.
+                    </li>
+
+                    <li>
+                        Masukkan bumbu halus dan mie kuning.
+                        Aduk hingga tercampur rata.
+                    </li>
+
+                    <li>
+                        Tambahkan tauge, kecap manis, garam,
+                        dan kaldu jamur. Koreksi rasa.
+                    </li>
+
+                    <li>
+                        Angkat dan sajikan dengan topping di atasnya.
+                    </li>
+                </ol>
+            </div>
+
+            <a class="link" href="kurang-garam.html">
+                Lihat Versi Kurang Garam
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Buku Resep Aceh &copy; 2026</p>
+    </footer>
 
 </body>
+<<<<<<< HEAD
 </html>
 
 aa
+=======
+>>>>>>> 9e4c31b08e3be83e6949308edc67afa9d1bc0b0e
